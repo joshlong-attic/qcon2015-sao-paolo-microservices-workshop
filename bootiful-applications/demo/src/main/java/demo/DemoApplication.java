@@ -1,5 +1,6 @@
 package demo;
 
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -29,12 +30,12 @@ public class DemoApplication {
         return args -> {
 
             Arrays.asList("Josh,Amos,Paolo,Danny,Chris,Floyd".split(","))
-                .forEach(n -> rr.save(new Reservation(n)));
+                    .forEach(n -> rr.save(new Reservation(n)));
 
-            System.out.println ( "---------------------------------");
+            System.out.println("---------------------------------");
             rr.findAll().forEach(System.out::println);
 
-            System.out.println ( "---------------------------------");
+            System.out.println("---------------------------------");
             rr.findByReservationName("Floyd").forEach(System.out::println);
         };
     }
@@ -44,12 +45,18 @@ public class DemoApplication {
 class ReservationMvcController {
 
     @Autowired
-    private ReservationRepository reservationRepository ;
+    private ReservationRepository reservationRepository;
 
     @RequestMapping("/reservations.php")
-    String reservations (Model model){
+    String reservations(Model model) {
         model.addAttribute("reservations", this.reservationRepository.findAll());
-        return "reservations" ;
+        return "reservations";
+    }
+
+    @RequestMapping("/killme")
+    void killme() {
+        LogFactory.getLog(getClass()).info("Murder is wrong!");
+        System.exit(1);
     }
 
 }
