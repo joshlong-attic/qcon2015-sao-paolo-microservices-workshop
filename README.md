@@ -1,1 +1,1 @@
-# qcon2015-sao-paolo-microservices-workshop
+# QCon 2015 Sao Paolo Microservices Workshop
