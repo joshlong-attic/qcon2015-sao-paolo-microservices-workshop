@@ -1,0 +1,11 @@
+---
+applications:
+- name: bootiful-applications
+  memory: 1024M
+  instances: 3
+  host: bootiful-applications-gripiest-copper
+  domain: cfapps.io
+  services:
+  - bootiful-applications-postgresql
+  - bootiful-applications-newrelic
+  - bootiful-applications-papertrail-logs

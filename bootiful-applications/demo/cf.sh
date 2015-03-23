@@ -47,3 +47,6 @@ cf restage $APP_NAME
 
 # make sure we can get back here again
 cf create-app-manifest $APP_NAME
+
+# how do we control everything programatically?
+echo the OAuth token is `cf oauth-token`
