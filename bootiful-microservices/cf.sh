@@ -83,6 +83,10 @@ function deploy_eureka_service_cli(){
     deploy_service $NAME
 }
 
+function deploy_dashboard_service(){
+    deploy_app dashboard-service
+}
+
 function deploy_contact_service(){
     cf cs elephantsql turtle contacts-postgresql
     deploy_app contact-service
@@ -100,7 +104,7 @@ function deploy_passport_service(){
 function reset(){
 
     echo "reset.."
-    apps="bookmark-service configuration-service contact-service eureka-service passport-service"
+    apps="bookmark-service configuration-service contact-service dashboard-service eureka-service passport-service"
     apps_arr=( $apps )
     for a in "${apps_arr[@]}";
     do
@@ -123,10 +127,11 @@ function reset(){
 
 mvn -DskipTests=true clean install
 
-login
-reset
-deploy_configuration_service
-deploy_eureka_service
-deploy_contact_service
-deploy_bookmark_service
-deploy_passport_service
+#login
+#reset
+#deploy_configuration_service
+#deploy_eureka_service
+deploy_dashboard_service
+#deploy_contact_service
+#deploy_bookmark_service
+#deploy_passport_service
