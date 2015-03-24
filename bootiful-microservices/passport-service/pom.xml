@@ -7,7 +7,7 @@
     <parent>
         <groupId>bootiful</groupId>
         <artifactId>microservices-parent</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.0.BUILD-SNAPSHOT</version>
     </parent>
     <artifactId>passport-service</artifactId>
 
