@@ -7,8 +7,13 @@
     <version>1.0.0.BUILD-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
+
+        <!-- infrastructure -->
         <module>configuration-service</module>
         <module>eureka-service</module>
+        <module>dashboard-service</module>
+
+        <!-- services -->
         <module>bookmark-service</module>
         <module>contact-service</module>
         <module>passport-service</module>
